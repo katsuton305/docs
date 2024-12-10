@@ -18,4 +18,11 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_TITLE: Groupware Setup
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          status: ${{ job.status }}
+          author_link: 'https://github.com/your-repo'
+          fields: |
+            - title: "Job Status"
+              value: ${{ job.status }}
+              short: true
