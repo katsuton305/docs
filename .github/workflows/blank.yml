@@ -17,7 +17,8 @@ jobs:
       - name: Notify Slack
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_TITLE: Groupware Setup
+          SLACK_TITLE: 自動テスト Groupware Setup
+          SLACK_MESSAGE: '自動テスト結果:${{ job.status }}  URL: xxx'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: ${{ job.status }}
